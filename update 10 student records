@@ -9,7 +9,7 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook; 
 import org.testng.annotations.*; 
 public class studentRecord { 
- @BeforeClass //@BeforeClass runs once before the entire test. 
+ @BeforeClass 
  public void setUp() throws Exception {} 
  @Test 
  public void testImportexport1() throws Exception { 

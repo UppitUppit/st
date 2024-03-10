@@ -1,0 +1,30 @@
+package SeleniumWebDriver; 
+import java.util.List; 
+import java.util.concurrent.TimeUnit; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+ 
+public class noOfObjects { 
+ 
+ public static void main(String[] args) { 
+
+  WebDriver driver = new ChromeDriver(); 
+  driver.manage().window().maximize(); 
+ 
+  driver.get("http://webdriveruniversity.com/Dropdown-CheckboxesRadioButtons/index.html"); 
+  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+
+  List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']")); 
+ 
+  System.out.println(checkboxes.size() + " Number of CheckBoxes"); 
+  List<WebElement> dropdown = driver.findElements(By.tagName("select")); 
+ 
+  System.out.println(dropdown.size() + " Number of DropDown Menus"); 
+ 
+  List<WebElement> radioBtns = driver.findElements(By.xpath("//input[@type='radio']")); 
+  System.out.println(radioBtns.size() + " Number of Radio Buttons"); 
+  driver.close(); 
+ } 
+} 

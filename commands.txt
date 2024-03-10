@@ -1,0 +1,19 @@
+package com.test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class program1{
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver d = new ChromeDriver();
+		d.get("https://www.google.com/");
+		d.manage().window().maximize();
+		d.findElement(By.tagName("textarea")).sendKeys("Youtube");
+		d.findElement(By.tagName("textarea")).submit();
+		d.findElement(By.xpath("//h3[normalize-space()='YouTube: Home']")).click();
+		Thread.sleep(2000);
+		d.findElement(By.xpath("//input[@id='search']")).sendKeys("kannada songs");
+		d.findElement(By.xpath("//input[@id='search']")).submit();
+		Thread.sleep(3000);
+		d.findElement(By.id("video-title")).click();
+		
+	}
+}

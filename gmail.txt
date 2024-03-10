@@ -1,0 +1,37 @@
+package rahul;
+
+import java.time.Duration;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class gmail{
+	public static void main(String[] args) {
+		WebDriver d = new ChromeDriver();
+		d.get("https://www.gmail.com");
+		d.manage().window().maximize();
+		String at = d.getTitle();
+		System.out.println(at);
+		String et = "Gmail";
+		if(at.equals(et)) {
+			System.out.println("matching");
+		}
+		else {
+			System.out.println("not matching");
+		}
+		
+		d.findElement(By.name("identifier")).sendKeys("rlsbcademo2024@gmail.com");
+		d.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+		
+		WebDriverWait wait= new WebDriverWait(d,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='Passwd']")));
+		
+		d.findElement(By.cssSelector("input[name='Passwd']")).sendKeys("rlsbca123");
+		d.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+		
+		System.out.println("login successfull");
+	}
+	
+}

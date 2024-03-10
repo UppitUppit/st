@@ -1,0 +1,36 @@
+package rahul;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class selenium {
+	public static void main(String args[]) throws InterruptedException {
+		WebDriver d = new ChromeDriver();
+		d.get("https://artoftesting.com/samplesiteforselenium");
+		d.manage().window().maximize();
+		String t= d.findElement(By.id("idOfDiv")).getText();
+		System.out.println(t);
+		
+		d.findElement(By.linkText("This is a link")).click();
+		Thread.sleep(1000);
+		d.navigate().back();
+		
+		d.findElement(By.name("firstName")).sendKeys("hii");
+		
+		d.findElement(By.xpath("//button[@id='idOfButton']")).click();
+		Thread.sleep(2000);
+		
+		d.findElement(By.cssSelector("#female")).click();
+		Thread.sleep(2000);
+		
+		d.findElement(By.className("Automation")).click();
+		Thread.sleep(2000);
+		
+		WebElement i = d.findElement(By.tagName("img"));
+		System.out.println(i.getAttribute("alt"));
+		
+		d.findElement(By.partialLinkText("Tutorial")).click();
+		
+		
+	}
+
+}

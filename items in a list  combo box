@@ -1,0 +1,38 @@
+Drop.html 
+<html> 
+<title>Write and test a program to get the number of list items in a list / combo box. 
+</title> 
+<body> 
+<label >Select a Programming Language:</label> 
+<select name="language" id="language"> 
+  <option value="javascript">JavaScript</option> 
+  <option value="python">Python</option> 
+  <option value="c++" disabled>C++</option> 
+  <option value="java" selected>Java</option> 
+</select> 
+</body> 
+</html> 
+ 
+package SeleniumWebDriver; 
+import java.util.List; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.support.ui.Select; 
+public class drop { 
+ public static void main(String[] args) { 
+  System.setProperty("webdriver.chrome.driver", 
+    " F:\\ Selenium\\chromedriver-win32\\chromedriver.exe "); 
+  WebDriver driver = new ChromeDriver(); 
+  driver.manage().window().maximize(); 
+  // URL launch 
+  driver.get("F:\\drop.html"); 
+ 
+  // Identify list 
+  Select items = new Select(driver.findElement(By.name("language"))); 
+  List<WebElement> mylist = items.getOptions(); 
+  System.out.println("Number of items = " + mylist.size()); 
+  driver.quit(); 
+ } 
+}
